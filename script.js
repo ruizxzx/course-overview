@@ -55,5 +55,10 @@ function calculateTime() {
 
         // Scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+      // Promotion
+document.getElementById("promotion").innerHTML = "<p>Are you looking for Lecture Duration Calculator (+/-)? Check out <a href='https://ruizxzx.github.io/TimeCalculator/' target='_blank'>Lecture Duration Calculator</a>.</p>";
+
     }
+    
 }
