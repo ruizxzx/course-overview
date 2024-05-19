@@ -56,9 +56,19 @@ function calculateTime() {
         // Scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-      // Promotion
-document.getElementById("promotion").innerHTML = "<p>Are you looking for Lecture Duration Calculator (+/-)? Check out <a href='https://ruizxzx.github.io/TimeCalculator/' target='_blank'>Lecture Duration Calculator</a>.</p>";
-
+        // Promotion
+        document.getElementById("promotion").innerHTML = "<p>Are you looking for Lecture Duration Calculator (+/-)? Check out <a href='https://ruizxzx.github.io/TimeCalculator/' target='_blank'>Lecture Duration Calculator</a>.</p>";
     }
-    
 }
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        calculateTime();
+    }
+}
+
+// Add event listeners to input fields to trigger calculation on Enter keypress
+document.getElementById("totalHours").addEventListener("keypress", handleKeyPress);
+document.getElementById("speed").addEventListener("keypress", handleKeyPress);
+document.getElementById("daysToComplete").addEventListener("keypress", handleKeyPress);
+document.getElementById("completionDate").addEventListener("keypress", handleKeyPress);
