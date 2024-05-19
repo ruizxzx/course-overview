@@ -22,7 +22,7 @@ function calculateTime() {
     if (isNaN(totalHours) || isNaN(daysToComplete) || isNaN(speed) || totalHours <= 0 || daysToComplete <= 0 || speed <= 0) {
         document.getElementById("result").innerHTML = "<p>Please enter valid positive numbers for all inputs.</p>";
     } else {
-        let tableHTML = "<table><tr><th>Day</th><th>Hours to Watch</th><th>1x Speed</th></tr>";
+        let tableHTML = "<table><tr><th>Day</th><th>Hours to Watch</th><th>Actual Completion</th></tr>";
 
         const dailyTime = totalHours / (daysToComplete * speed);
 
@@ -30,7 +30,7 @@ function calculateTime() {
 
         for (let day = 1; day <= numDaysToShow; day++) {
             const realTime = dailyTime * speed;
-            tableHTML += `<tr><td>Day ${day}</td><td>${dailyTime.toFixed(2)} (${speed}x)</td><td>${realTime.toFixed(2)} in real</td></tr>`;
+            tableHTML += `<tr><td>Day ${day}</td><td>${dailyTime.toFixed(2)} (${speed}x)</td><td>${realTime.toFixed(2)} of video</td></tr>`;
         }
 
         if (daysToComplete > 3) {
@@ -39,7 +39,7 @@ function calculateTime() {
             const lastDayTime = remainingHours / (remainingDays * speed);
             const lastDayRealTime = lastDayTime * speed;
             tableHTML += `<tr><td>...</td><td>...</td><td>...</td></tr>`;
-            tableHTML += `<tr><td>Day ${daysToComplete}</td><td>${lastDayTime.toFixed(2)} (${speed}x)</td><td>${lastDayRealTime.toFixed(2)} hours in real</td></tr>`;
+            tableHTML += `<tr><td>Day ${daysToComplete}</td><td>${lastDayTime.toFixed(2)} (${speed}x)</td><td>${lastDayRealTime.toFixed(2)} of Video</td></tr>`;
         }
 
         tableHTML += "</table>";
@@ -52,5 +52,8 @@ function calculateTime() {
         tableHTML += `<p>Total Days: ${totalDays}</p>`;
 
         document.getElementById("result").innerHTML = tableHTML;
+
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
