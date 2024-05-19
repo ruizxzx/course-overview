@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Watching Time Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Watching Time Calculator</h1>
+        <label for="totalHours">Total hours of the course:</label>
+        <input type="number" id="totalHours" placeholder="Enter total hours">
+
+        <label for="daysToComplete">Days to complete the course:</label>
+        <input type="number" id="daysToComplete" placeholder="Enter days to complete">
+
+        <label for="speed">Speed you are watching:</label>
+        <input type="number" id="speed" step="0.1" placeholder="Enter speed">
+
+        <button onclick="calculateTime()">Calculate</button>
+
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
