@@ -39,12 +39,18 @@ function calculateTime() {
             const lastDayTime = remainingHours / (remainingDays * speed);
             const lastDayRealTime = lastDayTime * speed;
             tableHTML += `<tr><td>...</td><td>...</td><td>...</td></tr>`;
-            tableHTML += `<tr><td>Day ${daysToComplete}</td><td>${lastDayTime.toFixed(2)} (${speed}x)</td><td>${lastDayRealTime.toFixed(2)} of Video</td></tr>`;
+            tableHTML += `<tr><td>Day ${daysToComplete}</td><td>${lastDayTime.toFixed(2)} (${speed}x)</td><td>${remainingHours.toFixed(2)} of Video</td></tr>`;
         }
 
         tableHTML += "</table>";
         tableHTML += `<p>Speed: ${speed}x</p>`;
         
+        const startDate = new Date();
+        const startDateString = startDate.getDate() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getFullYear();
+        tableHTML += `<p>Start Date: ${startDateString}</p>`;
+        
+        // Add +1 to the last date
+        completionDate.setDate(completionDate.getDate() + 1);
         const lastDate = completionDate.getDate() + "/" + (completionDate.getMonth() + 1) + "/" + completionDate.getFullYear();
         tableHTML += `<p>Last Date: ${lastDate}</p>`;
         
